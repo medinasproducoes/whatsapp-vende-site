@@ -13,7 +13,7 @@ exports.handler = async (event) => {
   }
 
   try {
-    const SITE_URL = 'https://whatsapp-vende-todo-dia.netlify.app';
+    const SITE_URL = 'https://whasapp-que-vende-todo-dia.netlify.app';
 
     // Gera um order_nsu único para rastrear esta compra específica
     const orderNsu = `wpp-vende-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
