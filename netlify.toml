@@ -1,0 +1,10 @@
+[build]
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/assets/whatsapp-que-vende-todo-dia.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

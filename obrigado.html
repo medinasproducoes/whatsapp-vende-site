@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Confirmada — WhatsApp que Vende Todo Dia</title>
+    <link rel="icon" type="image/png" href="img/favicon-web2.png">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes flutuar { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+        .icone-flutuante { animation: flutuar 3s ease-in-out infinite; }
+        .spinner { width:48px;height:48px;border:4px solid #ecfdf5;border-top-color:#10b981;border-radius:50%;animation:spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .state { display:none; }
+        .state.active { display:block; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased">
+
+    <header class="py-5 border-b border-slate-200 bg-white">
+        <div class="max-w-2xl mx-auto px-4 flex items-center gap-2">
+            <div class="w-7 h-7 bg-emerald-500 rounded-lg flex items-center justify-center text-white"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4-.83L3 21l1.83-4A9.86 9.86 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>
+            <span class="font-extrabold text-slate-900">WhatsApp que <span class="text-emerald-600">Vende</span></span>
+        </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto px-4 py-12">
+
+        <!-- ESTADO 1: Verificando pagamento -->
+        <div id="state-checking" class="state active text-center py-20">
+            <div class="spinner mx-auto mb-6"></div>
+            <h1 class="text-2xl font-extrabold text-slate-900 mb-2">Verificando seu pagamento...</h1>
+            <p class="text-slate-500 text-sm">Isso leva apenas alguns segundos.</p>
+        </div>
+
+        <!-- ESTADO 2: Confirmado automaticamente — download liberado -->
+        <div id="state-success" class="state">
+            <div class="text-center mb-10">
+                <div class="icone-flutuante w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-200 mb-5">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 mb-2">Pagamento confirmado! 🎉</h1>
+                <p class="text-slate-500 text-sm max-w-md mx-auto">Seu acesso ao guia <strong class="text-slate-800">WhatsApp que Vende Todo Dia</strong> está liberado. Clique no botão abaixo para baixar.</p>
+            </div>
+
+            <a href="/assets/whatsapp-que-vende-todo-dia.pdf" download
+               class="flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold py-4 px-6 rounded-xl transition-all shadow-lg shadow-emerald-500/20 mb-3 text-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Baixar meu Guia (PDF)
+            </a>
+            <p class="text-xs text-slate-400 text-center mb-8">O download inicia automaticamente. Salve o arquivo no seu celular ou computador.</p>
+
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 mb-8">
+                <h2 class="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide text-emerald-600">Próximos passos</h2>
+                <div class="space-y-5">
+                    <div class="flex gap-4">
+                        <div class="shrink-0 w-8 h-8 rounded-full bg-emerald-500 text-white font-bold text-sm flex items-center justify-center"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+                        <div><p class="font-bold text-slate-900 text-sm">Pagamento recebido</p><p class="text-xs text-slate-500 mt-0.5">Processado com sucesso pela InfinitePay.</p></div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="shrink-0 w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-sm flex items-center justify-center">2</div>
+                        <div><p class="font-bold text-slate-900 text-sm">Baixe o guia</p><p class="text-xs text-slate-500 mt-0.5">Clique no botão acima e salve o PDF no seu dispositivo.</p></div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="shrink-0 w-8 h-8 rounded-full bg-slate-200 text-slate-500 font-bold text-sm flex items-center justify-center">3</div>
+                        <div><p class="font-bold text-slate-900 text-sm">Comece pela Parte 1</p><p class="text-xs text-slate-500 mt-0.5">O Script de Vendas Completo — do primeiro contato ao fechamento.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-xs text-emerald-800 flex gap-3 items-start">
+                <svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <p><strong class="font-bold">Garantia de 7 dias:</strong> se o guia não fizer sentido para você, envie um e-mail e devolvemos 100% do valor, sem perguntas.</p>
+            </div>
+        </div>
+
+        <!-- ESTADO 3: Fallback manual (verificação falhou ou sem parâmetros) -->
+        <div id="state-manual" class="state">
+            <div class="text-center mb-10">
+                <div class="icone-flutuante w-20 h-20 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto border border-amber-200 mb-5">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+                </div>
+                <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 mb-2">Quase lá!</h1>
+                <p class="text-slate-500 text-sm max-w-md mx-auto">Recebemos sua compra. Para agilizar a liberação do seu guia, confirme seus dados abaixo.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 mb-8">
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="shrink-0 w-8 h-8 rounded-full bg-emerald-500 text-white font-bold text-sm flex items-center justify-center"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+                        <div><p class="font-bold text-slate-900 text-sm">Pagamento efetuado</p><p class="text-xs text-slate-500 mt-0.5">Processado pela InfinitePay.</p></div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="shrink-0 w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-sm flex items-center justify-center">2</div>
+                        <div><p class="font-bold text-slate-900 text-sm">Confirme para agilizar</p><p class="text-xs text-slate-500 mt-0.5">Clique em um dos botões abaixo para nos avisar.</p></div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="shrink-0 w-8 h-8 rounded-full bg-slate-200 text-slate-500 font-bold text-sm flex items-center justify-center">3</div>
+                        <div><p class="font-bold text-slate-900 text-sm">Receba o guia</p><p class="text-xs text-slate-500 mt-0.5">Conferimos seu pagamento e enviamos o PDF pelo mesmo canal.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 mb-8">
+                <h2 class="font-bold text-slate-900 mb-1">Confirme sua compra</h2>
+                <p class="text-xs text-slate-500 mb-5">Preencha seus dados. Ao clicar em enviar, abrirá o WhatsApp ou e-mail com a mensagem já pronta.</p>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Seu nome</label>
+                        <input type="text" id="conf-nome" placeholder="Como podemos te chamar?" class="w-full rounded-lg border border-slate-200 p-2.5 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">E-mail usado na compra</label>
+                        <input type="email" id="conf-email" placeholder="seuemail@exemplo.com" class="w-full rounded-lg border border-slate-200 p-2.5 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Valor pago (opcional)</label>
+                        <input type="text" id="conf-valor" placeholder="Ex: R$ 37,90" class="w-full rounded-lg border border-slate-200 p-2.5 text-sm focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-3 mt-6">
+                    <button onclick="enviarWhatsApp()" class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-sm text-sm">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 004.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0012.04 2z"/></svg>
+                        Enviar por WhatsApp
+                    </button>
+                    <button onclick="enviarEmail()" class="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-sm text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        Enviar por E-mail
+                    </button>
+                </div>
+                <p id="aviso-preencher" class="hidden text-xs text-rose-600 mt-3 text-center">Por favor, preencha ao menos seu nome e e-mail antes de enviar.</p>
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-xs text-emerald-800 flex gap-3 items-start mb-8">
+                <svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <p><strong class="font-bold">Garantia de 7 dias:</strong> se o guia não fizer sentido para você, devolvemos 100% do valor.</p>
+            </div>
+
+            <div class="text-center mb-10">
+                <p class="text-sm text-slate-600 flex items-center justify-center gap-1.5"><svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Tempo médio de liberação: <strong class="text-slate-900">poucos minutos</strong> em horário comercial.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-8 text-center text-xs text-slate-400 border-t border-slate-200 mt-6">
+        © 2026 WhatsApp que Vende Todo Dia. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // ══════════════════════════════════════════════
+        // CONFIGURAÇÕES — EDITE AQUI
+        // ══════════════════════════════════════════════
+        const NUMERO_WHATSAPP = '5545991359764'; // Troque pelo número real
+        const EMAIL_SUPORTE   = 'suporte@whatsappquevende.com.br';
+        const HANDLE          = 'medina_pay';
+        // ══════════════════════════════════════════════
+
+        function showState(id) {
+            document.querySelectorAll('.state').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function getParams() {
+            const p = new URLSearchParams(window.location.search);
+            return {
+                order_nsu: p.get('order_nsu'),
+                transaction_nsu: p.get('transaction_nsu'),
+                slug: p.get('slug'),
+                receipt_url: p.get('receipt_url')
+            };
+        }
+
+        async function verificarPagamento() {
+            const params = getParams();
+
+            if (!params.order_nsu || !params.transaction_nsu || !params.slug) {
+                showState('state-manual');
+                return;
+            }
+
+            try {
+                const res = await fetch('/.netlify/functions/verify-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        handle: HANDLE,
+                        order_nsu: params.order_nsu,
+                        transaction_nsu: params.transaction_nsu,
+                        slug: params.slug
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.paid) {
+                    showState('state-success');
+                    if (window.fbq) fbq('track', 'Purchase', { value: 37.90, currency: 'BRL' });
+                    if (window.ttq) ttq.track('CompletePayment', { value: 37.90, currency: 'BRL' });
+                } else {
+                    showState('state-manual');
+                }
+            } catch (err) {
+                console.error('Erro na verificação:', err);
+                showState('state-manual');
+            }
+        }
+
+        function coletarDadosConfirmacao() {
+            const nome = document.getElementById('conf-nome').value.trim();
+            const email = document.getElementById('conf-email').value.trim();
+            const valor = document.getElementById('conf-valor').value.trim();
+            return { nome, email, valor, valido: nome.length > 0 && email.length > 0 };
+        }
+
+        function enviarWhatsApp() {
+            const d = coletarDadosConfirmacao();
+            if (!d.valido) { document.getElementById('aviso-preencher').classList.remove('hidden'); return; }
+            document.getElementById('aviso-preencher').classList.add('hidden');
+            const msg = `Olá! Acabei de comprar o guia "WhatsApp que Vende Todo Dia" e gostaria de confirmar meu pagamento.\n\nNome: ${d.nome}\nE-mail: ${d.email}${d.valor ? `\nValor pago: ${d.valor}` : ''}`;
+            window.open(`https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function enviarEmail() {
+            const d = coletarDadosConfirmacao();
+            if (!d.valido) { document.getElementById('aviso-preencher').classList.remove('hidden'); return; }
+            document.getElementById('aviso-preencher').classList.add('hidden');
+            const assunto = 'Confirmação de Pagamento - WhatsApp que Vende Todo Dia';
+            const corpo = `Olá! Acabei de comprar o guia "WhatsApp que Vende Todo Dia" e gostaria de confirmar meu pagamento.\n\nNome: ${d.nome}\nE-mail: ${d.email}${d.valor ? `\nValor pago: ${d.valor}` : ''}`;
+            window.location.href = `mailto:${EMAIL_SUPORTE}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+        }
+
+        verificarPagamento();
+    </script>
+</body>
+</html>
