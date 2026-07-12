@@ -1,0 +1,9 @@
+{
+  "name": "whatsapp-vende-site",
+  "compatibility_date": "2026-07-12",
+  "main": "./_worker.js",
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS"
+  }
+}
