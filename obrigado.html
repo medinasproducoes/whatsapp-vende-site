@@ -83,7 +83,7 @@
 
             <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-xs text-emerald-800 flex gap-3 items-start">
                 <svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <p><strong class="font-bold">Garantia de 7 dias:</strong> se o guia não fizer sentido para você, envie um e-mail e devolvemos 100% do valor, sem perguntas.</p>
+                <p><strong class="font-bold">Compra segura:</strong> pagamento processado pela InfinitePay, plataforma regulamentada pelo Banco Central do Brasil.</p>
             </div>
         </div>
 
@@ -146,7 +146,7 @@
 
             <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-xs text-emerald-800 flex gap-3 items-start mb-8">
                 <svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <p><strong class="font-bold">Garantia de 7 dias:</strong> se o guia não fizer sentido para você, devolvemos 100% do valor.</p>
+                <p><strong class="font-bold">Compra segura:</strong> pagamento processado pela InfinitePay, plataforma regulamentada pelo Banco Central do Brasil.</p>
             </div>
 
             <div class="text-center mb-10">
@@ -157,7 +157,7 @@
     </main>
 
     <footer class="py-8 text-center text-xs text-slate-400 border-t border-slate-200 mt-6">
-        © 2026 WhatsApp que Vende Todo Dia. Todos os direitos reservados.
+        © 2026 WhatsApp que Vende Todo Dia — Medina'S Produções. Todos os direitos reservados.
     </footer>
 
     <script>
@@ -165,7 +165,6 @@
         // CONFIGURAÇÕES — EDITE AQUI
         // ══════════════════════════════════════════════
         const NUMERO_WHATSAPP = '5545991359764'; // Troque pelo número real
-        const EMAIL_SUPORTE   = 'suporte@whatsappquevende.com.br';
         const HANDLE          = 'medina_pay';
         // ══════════════════════════════════════════════
 
@@ -238,9 +237,9 @@
             const d = coletarDadosConfirmacao();
             if (!d.valido) { document.getElementById('aviso-preencher').classList.remove('hidden'); return; }
             document.getElementById('aviso-preencher').classList.add('hidden');
-            const assunto = 'Confirmação de Pagamento - WhatsApp que Vende Todo Dia';
-            const corpo = `Olá! Acabei de comprar o guia "WhatsApp que Vende Todo Dia" e gostaria de confirmar meu pagamento.\n\nNome: ${d.nome}\nE-mail: ${d.email}${d.valor ? `\nValor pago: ${d.valor}` : ''}`;
-            window.location.href = `mailto:${EMAIL_SUPORTE}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+            const params = new URLSearchParams({ nome: d.nome, email: d.email, assunto: 'Pagamento não confirmado' });
+            if (d.valor) params.set('valor', d.valor);
+            window.location.href = `institucional.html?${params.toString()}#contato`;
         }
 
         verificarPagamento();
